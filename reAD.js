@@ -9,7 +9,7 @@ var secondBook = xlsx.readFile("test2.xlsx");
 var listReaderSec = secondBook.Sheets["Лист1"];
 var dataSecondBook = xlsx.utils.sheet_to_json(listReaderSec);
 // var wkbookSecond = xlsx.readFile("",{cellDates:true});
-// console.log(wkbookSecond.SheetNames)
+ console.log(wkbookSecond.SheetNames)
 // var ws2 = wkbookSecond.Sheets['Лист1']
 var Newdata = data.map(function (record) {
   record.Net = record.KILOVATY - record.ZATRATY;
