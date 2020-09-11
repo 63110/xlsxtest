@@ -12,27 +12,31 @@ var dataSecondBook = xlsx.utils.sheet_to_json(listReaderSec);
 
 var Newdata1 = dataFirstBook.map(function (record) {
   record.value = record.KILOVATY - record.ZATRATY;
-  record.ADRESS;
+   record.ADRESS;
   delete record.ZATRATY;
   return record;
 });
 var Newdata2 = dataSecondBook.map(function (record) {
+  record.NAzvaKontrory
   delete record.ADRESS;
   delete record.ZATRATY;
-  record.value;
+  record.NomerTelefon;
   return record;
 });
 
 //console.log(Newdata1)
 //console.log(Newdata2)
 
-const twoArrays = [...Newdata1, ...Newdata2]
+var twoArrays = Newdata1.concat(Newdata2);
+
+//const twoArrays = [...Newdata1, ...Newdata2]
 console.log(twoArrays);
 var last =twoArrays.map(function (record) {
   delete record.ADRESS;
-  delete record.ZATRATY;
-  delete record.KILOVATY;
   record.value;
+  record.NomerTelefon;
+  delete record.ZATRATY;
+  record.KILOVATY;
   return record;
 });
 
