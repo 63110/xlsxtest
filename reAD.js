@@ -16,7 +16,6 @@ var Newdata1 = dataFirstBook.map(function (record) {
   delete record.ZATRATY;
   return record;
 });
-
 var Newdata2 = dataSecondBook.map(function (record) {
   delete record.ADRESS;
   delete record.ZATRATY;
@@ -27,10 +26,9 @@ var Newdata2 = dataSecondBook.map(function (record) {
 //console.log(Newdata1)
 //console.log(Newdata2)
 
-let mergedMap =  ({Newdata1, Newdata2} );
-
-//console.log(mergedMap);
-var last = mergedMap.map(function (record) {
+const twoArrays = [...Newdata1, ...Newdata2]
+console.log(twoArrays);
+var last =twoArrays.map(function (record) {
   delete record.ADRESS;
   delete record.ZATRATY;
   delete record.KILOVATY;
@@ -39,6 +37,6 @@ var last = mergedMap.map(function (record) {
 });
 
 var newWB = xlsx.utils.book_new();
-var newWS = xlsx.utils.json_to_sheet(mergedMap);
+var newWS = xlsx.utils.json_to_sheet(twoArrays);
 xlsx.utils.book_append_sheet(newWB, newWS, "Newdata");
 xlsx.writeFile(newWB, "New Data File.xlsx");
