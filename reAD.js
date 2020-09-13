@@ -1,21 +1,32 @@
+"use strict";
 var xlsx = require("xlsx");
 
 var firstBook = xlsx.readFile("test.xlsx");
 //console.log(firstBook.SheetNames)
 var listReaderFirst = firstBook.Sheets["Лист1"];
 var dataFirstBook = xlsx.utils.sheet_to_json(listReaderFirst);
+console.log(dataFirstBook);
 
 var secondBook = xlsx.readFile("test2.xlsx");
 //console.log(secondBook.SheetNames)
 var listReaderSec = secondBook.Sheets["Лист1"];
 var dataSecondBook = xlsx.utils.sheet_to_json(listReaderSec);
-
+console.log(dataSecondBook);
 var Newdata1 = dataFirstBook.map(function (record) {
   record.value = record.KILOVATY - record.ZATRATY;
    record.ADRESS;
   delete record.ZATRATY;
   return record;
 });
+function data(obj) {
+for (let obj in dataSecondBook);
+if (Object.keys(dataSecondBook).ZATRATY=="312") {
+  return true;
+}
+return false;
+};
+ 
+console.log (data(dataSecondBook))
 var Newdata2 = dataSecondBook.map(function (record) {
   record.NAzvaKontrory
   delete record.ADRESS;
