@@ -13,43 +13,49 @@ var listReaderSec = secondBook.Sheets["Лист1"];
 var dataSecondBook = xlsx.utils.sheet_to_json(listReaderSec);
 console.log(dataSecondBook);
 var Newdata1 = dataFirstBook.map(function (record) {
-  record.value = record.KILOVATY - record.ZATRATY;
-   record.ADRESS;
-  delete record.ZATRATY;
+  record.value = record.RASHOD_PTO - record.Kilovaty;
+  record.KONTORY;
+  delete record.phones;
+  delete record.inf;
+  delete record.smth_inf;
+  delete record.more;
   return record;
 });
-function data(obj) {
-for (let obj in dataSecondBook);
-if (Object.keys(dataSecondBook).ZATRATY=="312") {
-  return true;
-}
-return false;
-};
- 
-console.log (data(dataSecondBook))
+//console.log (Newdata1);
+
 var Newdata2 = dataSecondBook.map(function (record) {
-  record.NAzvaKontrory
-  delete record.ADRESS;
-  delete record.ZATRATY;
-  record.NomerTelefon;
+  record.KONTORY_2
+  record.NumberSCH_2;
+  record.Kilovaty_2;
   return record;
 });
 
-//console.log(Newdata1)
-//console.log(Newdata2)
+console.log(Newdata1)
+console.log(Newdata2)
 
 var twoArrays = Newdata1.concat(Newdata2);
 
 //const twoArrays = [...Newdata1, ...Newdata2]
 console.log(twoArrays);
 var last =twoArrays.map(function (record) {
-  delete record.ADRESS;
   record.value;
-  record.NomerTelefon;
-  delete record.ZATRATY;
-  record.KILOVATY;
+  record.NumberSCH;
+  record.NumberSCH_2;
+  record.Kilovaty;
+  record.Kilovaty_2;
   return record;
 });
+
+twoArrays.forEach(function (value) {
+  if (value.NumberSCH_2 === value.NumberSCH)
+  record.value.Kilovaty_2 = record.value.Kilovaty;
+  console.log();
+
+  console.log(value.Kilovaty_2)
+  console.log(value)
+ 
+})
+
 
 var newWB = xlsx.utils.book_new();
 var newWS = xlsx.utils.json_to_sheet(twoArrays);
