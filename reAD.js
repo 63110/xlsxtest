@@ -5,13 +5,13 @@ var firstBook = xlsx.readFile("test.xlsx");
 //console.log(firstBook.SheetNames)
 var listReaderFirst = firstBook.Sheets["Лист1"];
 var dataFirstBook = xlsx.utils.sheet_to_json(listReaderFirst);
-console.log(dataFirstBook);
+//console.log(dataFirstBook);
 
 var secondBook = xlsx.readFile("test2.xlsx");
 //console.log(secondBook.SheetNames)
 var listReaderSec = secondBook.Sheets["Лист1"];
 var dataSecondBook = xlsx.utils.sheet_to_json(listReaderSec);
-console.log(dataSecondBook);
+//console.log(dataSecondBook);
 var Newdata1 = dataFirstBook.map(function (record) {
   record.value = record.RASHOD_PTO - record.Kilovaty;
   record.KONTORY;
@@ -30,13 +30,13 @@ var Newdata2 = dataSecondBook.map(function (record) {
   return record;
 });
 
-console.log(Newdata1)
-console.log(Newdata2)
+//console.log(Newdata1)
+//console.log(Newdata2)
 
 var twoArrays = Newdata1.concat(Newdata2);
 
 //const twoArrays = [...Newdata1, ...Newdata2]
-console.log(twoArrays);
+//console.log(twoArrays);
 var last =twoArrays.map(function (record) {
   record.value;
   record.NumberSCH;
@@ -46,15 +46,51 @@ var last =twoArrays.map(function (record) {
   return record;
 });
 
-twoArrays.forEach(function (value) {
-  if (value.NumberSCH_2 === value.NumberSCH)
-  record.value.Kilovaty_2 = record.value.Kilovaty;
-  console.log();
+  
+/*
+let i=0;
+Newdata1.forEach (function (item) {
+  console.log(item)
+   Newdata2[i].key = item.key;
+    i++;
+  });
 
-  console.log(value.Kilovaty_2)
-  console.log(value)
+*/
+
+var step;
+for (step = 0; step < 15; step++) {
+  const result = Newdata2.find(x=>x.NumberSCH_2)
+  console.log(result);
+  
+}
+
+Newdata1.forEach(function (value) {
+  if (value == value.NumberSCH)
+  console.log(value.NumberSCH);
+
+
+
+Newdata1.forEach((item) => {
+  if (item == 'Kilovaty') 
+  { const result = Newdata2.find(x=>)
+    return;
+  }
+});
+
+/*
+twoArrays.forEach(function callback () {
+  if (base.Ned == base.NumberSCH){
+    base.Kilovaty = base.Kilovaty_2;
+
+  } else {
+    base.Kilovaty_2 = base.Kilovaty;
+  //console.log(value.Kilovaty);
+  }
+}
+  //console.log(value.Kilovaty_2)
+ // console.log(value)
  
-})
+);
 
 
 var newWB = xlsx.utils.book_new();
