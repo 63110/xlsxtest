@@ -1,13 +1,13 @@
 "use strict";
 var xlsx = require("xlsx");
 
-var firstBook = xlsx.readFile("test.xlsx");
+var firstBook = xlsx.readFile("test11.xlsx");
 //console.log(firstBook.SheetNames)
 var listReaderFirst = firstBook.Sheets["Лист1"];
 var dataFirstBook = xlsx.utils.sheet_to_json(listReaderFirst);
 //console.log(dataFirstBook);
 
-var secondBook = xlsx.readFile("test2.xlsx");
+var secondBook = xlsx.readFile("test22.xlsx");
 //console.log(secondBook.SheetNames)
 var listReaderSec = secondBook.Sheets["Лист1"];
 var dataSecondBook = xlsx.utils.sheet_to_json(listReaderSec);
