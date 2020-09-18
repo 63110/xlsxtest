@@ -1,23 +1,35 @@
 "use strict";
 var xlsx = require("xlsx");
 
-var firstBook = xlsx.readFile("test22.xlsx");
-var listReaderFirst = firstBook.Sheets["list1"];
+var firstBook = xlsx.readFile("kniga1.xlsx");
+console.log(firstBook.SheetNames);
+var listReaderFirst = firstBook.Sheets["Лист1"];
 var dataFirstBook = xlsx.utils.sheet_to_json(listReaderFirst);
-
-var secondBook = xlsx.readFile("test2.xlsx");
-var listReaderSec = secondBook.Sheets["Лист1"];
+console.log(dataFirstBook);
+var secondBook = xlsx.readFile("kniga2.xlsx");
+// console.log(secondBook.SheetNames)
+var listReaderSec = secondBook.Sheets["list1"];
 var dataSecondBook = xlsx.utils.sheet_to_json(listReaderSec);
+console.log(dataSecondBook);
 
 var Newdata1 = dataFirstBook.map((record) => {
   record.KONTORY;
-  delete record.phones;
-  delete record.inf;
-  delete record.smth_inf;
-  delete record.more;
+  delete record.B;
+  delete record.C;
+  delete record.D;
+  delete record.F;
+  delete record.E;
+  delete record.A;
+  delete record.H;
+  delete record.G;
+  delete record.I;
+  delete record.J;
+  delete record.A;
+  delete record.K;
+  delete record.L;
+  record.Kilovaty;
   return record;
 });
-
 var Newdata2 = dataSecondBook.map(({ KONTORY_2, NumberSCH_2 }) => ({
   KONTORY_2,
   NumberSCH_2,
