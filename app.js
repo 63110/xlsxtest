@@ -23,8 +23,13 @@ app.post("/upload", function (req, res, next) {
     else
         res.send("Файл загружен");
 });
+app.post("/start", function (req, res, next) {
+app.use('./Untitled-2.js', function(req, res, next) {
 
-
+    console.log('runnu');
+  
+      });
+});
 app.get('/download', function(req, res){
     const file = `${__dirname}`;
     res.download(filePath, fileName);  
